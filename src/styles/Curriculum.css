@@ -1,0 +1,101 @@
+.curriculum{
+    position: absolute;
+    width: 210mm;
+    height: fit-content;
+    top: -2000px;
+    left: 25%;
+    transition: all .8s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    margin: 25px;
+    border-radius: 10px;
+    padding: 25px;
+    opacity: 1;
+}
+
+.show{
+    top: 100px;
+}
+
+.curriculum section h3{
+    color: #9d9d9d;
+    font-size: 25px;
+}
+
+.exp{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 10px;
+    gap: 5px;
+}
+
+.exp span{
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    align-items: end;
+}
+
+
+
+.exp h3{
+    font-size: 20px;
+    color: rgb(0, 157, 255) !important; 
+}
+
+
+.curriculum section{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+    width: 100%;
+    height: fit-content;
+}
+
+.title-curriculum{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+    min-height: 75px;
+    
+    width: 100%;
+}
+
+.title-curriculum h3{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.title-curriculum p{
+    font-size: 20px;
+}
+
+.personal-data{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+    min-height: fit-content;
+    width: 100%;
+    
+}
+
+.personal-data h3{
+    font-size: 20px;
+    color: #9d9d9d;
+    font-weight: bold;
+}
+
+.personal-data p{
+    padding: 10px;
+    font-size: 18px;
+}
