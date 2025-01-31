@@ -34,7 +34,7 @@ function Formstudies( {addStudy} ) {
             end_date: ''
         })
     }
-
+    
     
     
 return (
@@ -47,11 +47,11 @@ return (
                 <option value="university">University</option>
             </select>
             <label htmlFor="institution" ></label>
-            <input type="text" name="institution" id="institution" placeholder="Institution" value={FormData.institution} onChange={handleChange}/>
+            <input type="text" name="institution" id="institution" required placeholder="Institution" value={FormData.institution} onChange={handleChange}/>
             <label htmlFor="degree"></label>
-            <input type="text" name="degree" id="degree" placeholder="Degree" value={FormData.degree} onChange={handleChange}/>
+            <input type="text" name="degree" id="degree" required placeholder="Degree" value={FormData.degree} onChange={handleChange}/>
             <label htmlFor="description"></label>
-            <input type="text" name="description" id="description" placeholder="Describe your experience" value={FormData.description} onChange={handleChange}/>
+            <textarea name="description" id="description" required placeholder="Description" value={FormData.description} onChange={handleChange}></textarea>
             <div>
                 <span>
                     <label htmlFor="iniciate-date">Iniciate Date</label>
@@ -62,8 +62,9 @@ return (
                     <input type="date" name="end_date" required value={FormData.end_date} id="end-date" onChange={handleChange}/>
                 </span>    
             </div>
-            <button>Submit</button>
+            <button>Add</button>
         </form>
+        <div className="line"></div>
     </div>
     )
 }

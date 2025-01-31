@@ -4,7 +4,7 @@ import html2canvas from 'html2canvas';
 import { useRef } from 'react';
 import { useState } from 'react';
 
-function Curriculum( {studies, personalData, work} ) {
+function Curriculum( {studies, personalData, work, removeStudies, removeWork} ) {
 
     let hasStudies = false;
     let hasWork = false;
@@ -22,21 +22,6 @@ function Curriculum( {studies, personalData, work} ) {
         hasWork = true;
     }
 
-    const divRef = useRef();
-
-  function generatePDF() {
-    const input = divRef.current;
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      const imgWidth = 210; // A4 width en mm
-      const imgHeight = canvas.height * (imgWidth / canvas.width); // Ajustar altura
-
-      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-      pdf.save("documento.pdf");
-    });
-    input.style.height = "fit-content";
-  };
 
     const showTitle = (data) => {
         return(
@@ -57,20 +42,9 @@ function Curriculum( {studies, personalData, work} ) {
         )
     }
 
-    const [showCurriculum, setShowCurriculum] = useState('curriculum hidden');
-
-    const handleShowCurriculum = () => {
-        console.log(showCurriculum)
-        if (showCurriculum == 'curriculum hidden'){
-            setShowCurriculum('curriculum show')
-        } else {
-            setShowCurriculum('curriculum hidden')
-        }
-    }
-
     return (
         <>
-        <article className={showCurriculum} ref={divRef}>
+        <article className='curriculum'>
             {hasPersonalData ? showTitle(personalData) : <h2>Your Curriculum</h2>}
             <section>
                 {hasPersonalData ? showData(personalData) : <p>No personal data added</p>}
@@ -93,9 +67,9 @@ function Curriculum( {studies, personalData, work} ) {
                         return (
                             <div className='exp' key={index}>
                                 <span><h3>{study.institution}</h3>{month} {iniciate_year} - {end_month} {end_year }</span>
-                                
                                 <h5>{study.degree}</h5>
                                 <p>"{study.description}"</p>
+                                <button onClick={()=>{removeStudies(index)}}>Delete</button>
                             </div>
                         )
                     })
@@ -120,13 +94,14 @@ function Curriculum( {studies, personalData, work} ) {
                             <span><h3>{work.institution}</h3> {month} {iniciate_year} - {end_month} {end_year }</span>
                             <h5>{work.degree}</h5>
                             <p>"{work.description}"</p>
+                            <button onClick={() => removeWork(index)}>Delete</button>
                         </div>
                     )
+
                 })
             }
             </section>
         </article>
-        <button onClick={generatePDF}>Generate PDF</button>
         </>
     )
 }

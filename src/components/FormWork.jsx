@@ -38,7 +38,7 @@ function FormWork( {addWork} ) {
                 <label htmlFor="position"></label>
                 <input type="text" id="position" required name="position" placeholder="Position" value={FormData.position} onChange={handleChange}/>
                 <label htmlFor="description"></label>
-                <input type="text" id="description" name="description" placeholder="Description" value={FormData.description} onChange={handleChange}/>
+                <textarea id="description" required name="description" placeholder="Description" value={FormData.description} onChange={handleChange}></textarea>
                 <div>
                     <span>
                         <label htmlFor="iniciate-date">Iniciate Date</label>
@@ -52,6 +52,7 @@ function FormWork( {addWork} ) {
                 </div>
                 <button type="submit">Add</button>
             </form>
+            <div className="line"></div>
         </div>
     )
 }   

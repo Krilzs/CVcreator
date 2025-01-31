@@ -1,4 +1,4 @@
-import '../styles/FormPersonalData.css'
+
 import { useState } from 'react'
 
 function FormPersonalData({addPersonalData}) {
@@ -48,9 +48,10 @@ function FormPersonalData({addPersonalData}) {
             <label htmlFor="phone"></label>
             <input type="tel" name="phone" id="phone" required placeholder="Phone" value={FormData.phone} onChange={handleChange}/>
             <label htmlFor="description"></label>
-            <input type="text" name="description" id="description" required placeholder="Description" value={FormData.description} onChange={handleChange}/>
+            <textarea type="textarea" name="description" id="description" required placeholder="About You" value={FormData.description} onChange={handleChange}/>
             <button>{sended ? 'Edit' : 'Add'}</button>
         </form>
+        <div className="line"></div>
         </div>
     )
 }
